@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<script>
+    function s(){
+        const fs = require("fs");
+        alert("started")
+        let f=document.getElementById("fname").value;
+        let add=document.getElementById("Address").value;
+        alert("started1")
+        alert(f)
+        alert(add)
+        fs.readFile("user.json", (err, customer) => {
+            if (err) {
+                console.log("Error reading file:", err);
+                
+            }
+            alert("Started2")
+  // increase customer order count by 1
+            customer.f=v;
+            fs.writeFile("user.json", JSON.stringify(customer), err => {
+                if (err) console.log("Error writing file:", err);
+                });
+            });
+        }
+
+</script>
+<div class="container">
+  <form>
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Magnituso ID">
+
+    <label for="subject">Address</label>
+    <input type="text" id="Address" name="Address" placeholder="Address">
+
+    <button type="submit" onclick="s()">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
