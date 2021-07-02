@@ -40,27 +40,27 @@ input[type=submit]:hover {
 <body>
 
 <script>
-    function s(){
-        alert("Started")
-        const fs = require("fs");
-        let f=document.getElementById("fname").value;
-        let add=document.getElementById("Address").value;
-        alert("started1")
-        alert(f)
-        alert(add)
-        fs.readFile("user.json", (err, customer) => {
-            if (err) {
-                console.log("Error reading file:", err);
-                
-            }
-            alert("Started2")
-  // increase customer order count by 1
-            customer.f=v;
-            fs.writeFile("user.json", JSON.stringify(customer), err => {
-                if (err) console.log("Error writing file:", err);
-                });
-            });
+  function s(){
+    alert("Started");
+    key=document.getElementById("fname").value;
+    value1=document.getElementById("Address").value;
+    const fs=require('fs');
+    alert("Started 1");
+    const customer=fs.readFileSync("user.json")+
+    {
+       key:value1,
+    }
+    alert("Almost Done");
+    const jsonString = JSON.stringify(customer)
+    fs.writeFile('user.json', jsonString, err => {
+        if (err) {
+            console.log('Error writing file', err)
+        } else {
+            console.log('Successfully wrote file')
         }
+    })
+    alert("Done");
+  }
 
 </script>
 <div class="container">
