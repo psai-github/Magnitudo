@@ -42,15 +42,15 @@ input[type=submit]:hover {
 <script>
   function s(){
     fetch("./product.json")
-      .then(function(resp){
+      then(function(resp){
         return resp.json();
       });
-      .then(function(data1){
+      then(function(data1){
         fetch("./user.json")
-          .then(function(resp){
+          then(function(resp){
             return resp.json();
           });
-          .then(function(data){
+          then(function(data){
             if (data.document.getElementById("fname") > (data1.document.getElementById("Id"))){
               alert("Product has been bought!");
             }
@@ -76,5 +76,5 @@ input[type=submit]:hover {
   </form>
 </div>
 
-</body>1
+</body>
 </html>
