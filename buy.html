@@ -54,13 +54,15 @@ input[type=submit]:hover {
             if (data.document.getElementById("fname") > (data1.document.getElementById("Id"))){
               alert("Product has been bought!");
             }
+        
             else{
               alert("Sorry,You Dont Have Enough Money in Your Magnitudo Account");
               return
             }
             
-          });
-  }
+  }); });   
+       
+
 </script>
 
 <div class="container">
@@ -71,7 +73,7 @@ input[type=submit]:hover {
     <label for="subject">ID of Product</label>
     <input type="text" id="Id" name="Id" placeholder="Product Id">
 
-    <button type="submit" onclick="s()">Submit</button>
+    <button type="submit"onclick="s()">Submit</button>
  
   </form>
 </div>
