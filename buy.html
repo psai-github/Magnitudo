@@ -40,7 +40,8 @@ input[type=submit]:hover {
 <body>
 
 <script>
-  function s(){
+  function s(err){
+    alert(err)
     fetch("./product.json")
       .then(function(resp){
         return resp.json();
