@@ -41,12 +41,12 @@ input[type=submit]:hover {
 
 <script>
   function s(err){
-
+    alert("Started")
     fetch("./product.json")
-      alert(err)
       .then(function(resp){
         return resp.json();
       });
+      alert(err)
       then(function(data1){
         fetch("./user.json")
           .then(function(resp){
@@ -61,8 +61,7 @@ input[type=submit]:hover {
             else{
               alert("Sorry,You Dont Have Enough Money in Your Magnitudo Account");
               return
-            }
-            
+            }       
   }); }); }  
        
 
