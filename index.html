@@ -100,6 +100,47 @@ function closeNav() {
 </script>
    
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -236,6 +277,39 @@ body {
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -257,7 +331,7 @@ body {
 .alert.info {background-color: #2196F3;}
 .alert.warning {background-color: #ff9800;}
 
-.closebtn {
+.closebtn1 {
   margin-left: 15px;
   color: white;
   font-weight: bold;
@@ -268,7 +342,7 @@ body {
   transition: 0.3s;
 }
 
-.closebtn:hover {
+.closebtn1:hover {
   color: black;
 }
 </style>
@@ -286,33 +360,12 @@ for (i = 0; i < close.length; i++) {
   }
 }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <style>
 body {
   font-family: "Lato", sans-serif;
 }
 
-.sidebar {
+.sidebar1 {
   height: 100%;
   width: 0;
   position: fixed;
@@ -325,7 +378,7 @@ body {
   padding-top: 60px;
 }
 
-.sidebar a {
+.sidebar1 a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -334,11 +387,11 @@ body {
   transition: 0.3s;
 }
 
-.sidebar a:hover {
+.sidebar1 a:hover {
   color: #f1f1f1;
 }
 
-.sidebar .closebtn {
+.sidebar1 .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -346,7 +399,7 @@ body {
   margin-left: 50px;
 }
 
-.openbtn {
+.openbtn1 {
   font-size: 20px;
   cursor: pointer;
   background-color: #111;
@@ -355,7 +408,7 @@ body {
   border: none;
 }
 
-.openbtn:hover {
+.openbtn1:hover {
   background-color: #444;
 }
 
@@ -366,16 +419,16 @@ body {
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+  .sidebar1 {padding-top: 15px;}
+  .sidebar1 a {font-size: 18px;}
 }
 h2{color:grey;}
 </style>
 </head>
 <body>
 
-<div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+<div id="mySidebar1" class="sidebar1">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">×</a>
   <h2><bold>Settings:</bold><h2>
   <a href="#">Sign up</a>
   <a href="buying_points.py">Buy points</a>
@@ -399,14 +452,14 @@ h2{color:grey;}
 </div>
 
 <script>
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+function openNav1() {
+  document.getElementById("mySidebar1").style.width = "250px";
+  document.getElementById("main1").style.marginLeft = "250px";
 }
 
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
+function closeNav1() {
+  document.getElementById("mySidebar1").style.width = "0";
+  document.getElementById("main1").style.marginLeft= "0";
 }
 </script>
 
@@ -562,7 +615,7 @@ body {
 
 <div style="color:grey;"class="topnav">
   <button class="openbtn" onclick="openNav()"><small>Sell</small></button> 
-  <button class="openbtn" onclick="openNav()"><strong>☰ All<strong></button>
+  <button class="openbtn1" onclick="openNav1()"><strong>☰ All<strong></button>
     <a href=""><small>Clothing</small></a>
     <a href="pdf.html" ><small>Books & Artices</small></a>
     <a href=""><small>Tech</small></a>
