@@ -55,3 +55,43 @@ body {
 <div class="preview-area">
   <iframe id="preview-window"></iframe>
 </div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+function d(){
+	alert("")
+	var hiddenElement = document.createElement('a');
+	hiddenElement.href = 'data:attachment/text,' + 								encodeURI(document.documentElement.outerHTML);
+	hiddenElement.target = '_blank';
+	hiddenElement.download = 'myFile.txt';
+	hiddenElement.click();
+}
+</script>
+<style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+</head>
+<body>
+
+
+
+<button onclick="d()"class="btn" ><i class="fa fa-download"></i> Download</button>
+
+</body>
+</html>
