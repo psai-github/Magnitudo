@@ -244,8 +244,12 @@ body {
 <body>
 <script>
  function change(){
- 	document.getElementById("myForm").action=((document.getElementById("s")).value)+".html";
- }
+    if(document.getElementById("s").value==""){
+        confirm("Please Type Something...");
+    }
+    else{
+ 	    document.getElementById("myForm").action=((document.getElementById("s")).value)+".html";
+ }  }
  function cart(){
   document.getElementById("s").value="cart";
  }
@@ -264,7 +268,7 @@ body {
     <a style="color:black; "href="about.html">About</a>
   </div>
   <div class="search-container">
-    <form id="myForm" action="/action_page.php">
+    <form id="myForm" action="">
       <input style="width: 750px;"width=200 type="search" id="s" placeholder="Search..." name="search">
       <button style="float:center;" type="submit" onclick="change()"><i class="fa fa-search"></i></button>
     </form>
