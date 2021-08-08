@@ -1144,7 +1144,7 @@ input {
 
 <script>
 function save(){
-    var a=confirm("Data May Be Lost!");
+
     window.localStorage.setItem("data", document.getElementsByClassName("ul"))
     document.getElementById("myUL") = localStorage.getItem("data");
 }
