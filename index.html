@@ -1135,7 +1135,7 @@ input {
 <div id="myDIV" class="header">
   <input  type="number"id="myInput" placeholder="ID">
   <span onclick="newElement()" class="addBtn">Add</span>
-  <span onclick="ckeckout()" class="addBtn1">Buy</span>
+  <span onclick="check()" class="addBtn1">Buy</span>
 </div>
 
 <ul class="ul"id="myUL">
@@ -1143,6 +1143,9 @@ input {
 </ul>
 
 <script>
+function check(){
+  document.getElementById("s").value="cart";
+}
 function save(){
 
     window.localStorage.setItem("data", document.getElementsByClassName("ul"))
