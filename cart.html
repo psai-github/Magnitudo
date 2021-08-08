@@ -1,384 +1,192 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
+  body {
   margin: 0;
-  min-width: 250px;
-}
-
-/* Include the padding and border in an element's total width and height */
-* {
-  box-sizing: border-box;
-}
-
-/* Remove margins and padding from the list */
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-/* Style the list items */
-ul li {
-  cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
-  list-style-type: none;
-  background: #eee;
-  font-size: 18px;
-  transition: 0.2s;
-  
-  /* make the list items unselectable */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Set all odd list items to a different color (zebra-stripes) */
-ul li:nth-child(odd) {
-  background: #f9f9f9;
-}
-
-/* Darker background-color on hover */
-ul li:hover {
-  background: #ddd;
-}
-
-/* When clicked on, add a background color and strike out text */
-ul li.checked {
-  background: #888;
-  color: #fff;
-  text-decoration: line-through;
-}
-
-/* Add a "checked" mark when clicked on */
-ul li.checked::before {
-  content: '';
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
-}
-
-/* Style the close button */
-.close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 16px 12px 16px;
-}
-
-.close:hover {
-  background-color: #f44336;
   color: white;
+  font-family: 'Electrolize', sans-serif;
+  background-image: url(http://www.newhdwallpapers.in/wp-content/uploads/2014/04/Dandelion-at-Sunset-Nature-HD-Wallpaper.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-/* Style the header */
-.header {
-  background-color: #f44336;
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
-}
-
-/* Clear floats after the header */
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the input */
-input {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  width: 75%;
-  padding: 10px;
-  float: left;
-  font-size: 16px;
-}
-
-/* Style the "Add" button */
-.addBtn {
-  padding: 10px;
-  width: 25%;
-  background: #d9d9d9;
-  color: #555;
-  float: left;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 0;
-}
-
-.addBtn:hover {
-  background-color: #bbb;
-}
-</style>
-</head>
-<body>
-
-<div id="myDIV" class="header">
-  <input type="text" id="myInput" placeholder="Title or Id...">
-  <span onclick="newElement()" class="addBtn">Add</span>
-</div>
-
-<ul id="myUL">
-</ul>
-
-<script>
-// Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
-
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-
-// Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
-
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
-
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {
-  font-family: Arial;
-  font-size: 17px;
-  padding: 8px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  display: -ms-flexbox; /* IE10 */
+.align-center {
   display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
 
-.col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
+.card {
+  width: 500px;
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 0 #222, 2px 2px 15px rgba(0,0,0,0.9);
+  background: black;
+  background: -webkit-linear-gradient(left, #000000, #282828);
+  background: -o-linear-gradient(right, #000000, #282828);
+  background: -moz-linear-gradient(right, #000000, #282828);
+  background: linear-gradient(to right, #000000, #282828)
 }
 
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
+.form {
+  padding-top: 110px;
 }
 
-.col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
+.card-title {
+  float:left;
+  margin-left: 15px;
 }
 
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
-
-.container {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
-input[type=text] {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+.logo {
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
 }
 
 label {
-  margin-bottom: 10px;
   display: block;
 }
 
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
-}
-
-.btn {
-  background-color: #04AA6D;
+.card-number {
+  float: left;
+  margin-left: 15px;
+  margin-bottom: 10px;
   color: white;
-  padding: 12px;
-  margin: 10px 0;
+}
+.card-number input {
+  height: 30px;
+  background-color: transparent;
   border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 17px;
+  font-family: 'Electrolize', sans-serif;
+  color: #fff;
 }
 
-.btn:hover {
-  background-color: #45a049;
+.card-name {
+  clear: both;
+  float: left;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  color: #fff;
 }
 
-a {
-  color: #2196F3;
+.card-name input {
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: 'Electrolize', sans-serif;
 }
 
-hr {
-  border: 1px solid lightgrey;
+input:focus {
+  color: #fff;
+  outline: none;
+  border-bottom: 1px solid white;
 }
 
-span.price {
+.select-date {
+  clear: both;
+  float: left;
+  margin-left: 15px;
+}
+
+.card-cvc {
   float: right;
-  color: grey;
+  margin-right: 15px;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-@media (max-width: 800px) {
-  .row {
-    flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
-  }
+.card-cvc input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'Electrolize', sans-serif;
 }
+
+select {
+  border: none;
+  background-color: rgba(255,255,255, 0.2);
+  color: #fff;
+}
+
+option {
+  color: #000000;
+}
+
+.buy-button {
+  font-family: 'Electrolize', sans-serif;
+  cursor: pointer;
+  position: relative;
+  margin-top: auto;
+  margin-left: 64px;
+  margin-right: -100px;
+  padding: 10px 10px;
+  border-radius: 6px;
+  box-shadow: -2px 0px 6px 1px #000000;
+  background-color: #FFAB40;
+  border:none;
+  color: #fff;
+}
+
+.buy-button:hover {
+  background-color: #66BB6A;
+  transition: linear 0.2s;
+}
+
+
 </style>
-</head>
-<body>
-
-
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
+<div class="align-center">
+  <div class="card">
+    <header>
+    <h3 class="card-title">Payment Details</h3>
+    <img width="128" alt="Visa Inc. logo"             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/128px-Visa_Inc._logo.svg.png" class="logo"/>
+    </header>
+    
+    <form action="" class="form">
+      <div class="card-number">
+      <label for="number">Card Number</label>
+      <input id="number" type="text" size="40" placeholder="1234 1234 1234 1234" required/>
+      </div>
       
-        <div class="row">
-          <div class="col-50">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
-
-            <div class="row">
-              <div class="col-50">
-                <label for="state">Id of Product</label>
-                <input type="text" id="state" name="Id" placeholder="Id:101">
-              </div>
-              <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
-              </div>
-            </div>
-          </div>
-
-          <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
-                <label for="CVV"></label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
-        <input type="submit" value="Continue to checkout" class="btn">
-      </form>
-    </div>
-  </div>
-  <div class="col-25">
-    <div class="container">
-
+      <div class="card-name">
+      <label for="name">Name</label>
+      <input id="name" type="text" size="40" required placeholder="Your Name"/>
+      </div>
+      
+      <div class="input-row">
+      <div class="select-date">
+      <label for="date">Expiration</label>
+      <select name="" id="date">
+        <option value="00"></option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+      <select name="" id="date">
+        <option value="0000"></option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+      </select>
+      </div>
+      
+      <div class="card-cvc">
+      <label for="cvc">CVV</label>
+      <input id="cvc" type="text" size="5" placeholder="123" required/>
+      </div>
+        
+      <button class="buy-button">Complete Purchase</button>
+      </div>
+    </form>
     
   </div>
 </div>
-
-</body>
-</html>
