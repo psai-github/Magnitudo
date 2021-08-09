@@ -943,7 +943,7 @@ function three(){
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="https://ctl.s6img.com/society6/img/LyShljLiFmRoqGcEOoh2mymmn1w/w_1500/posters/top/~artwork,fw_2718,fh_3620,fx_-106,fy_-88,iw_3780,ih_3780/s6-original-art-uploads/society6/uploads/misc/372afb6fce834554ae5503019e0c0141/~~/lined-paper1951239-posters.jpg" alt="Paper" style="width:100%">
+      <img id="1"src="https://ctl.s6img.com/society6/img/LyShljLiFmRoqGcEOoh2mymmn1w/w_1500/posters/top/~artwork,fw_2718,fh_3620,fx_-106,fy_-88,iw_3780,ih_3780/s6-original-art-uploads/society6/uploads/misc/372afb6fce834554ae5503019e0c0141/~~/lined-paper1951239-posters.jpg" alt="Paper" style="width:100%">
       <div class="container">
         <h2><del>19.99$ </del> <br/>9.99$</h2>
         <p class="title">500 sheets , Id=1</p>
@@ -954,7 +954,7 @@ function three(){
 
   <div class="column">
     <div class="card">
-      <img src="https://kbimages1-a.akamaihd.net/6ea81875-5ef9-4594-801a-a93d650a84b2/1200/1200/False/diary-of-a-wimpy-kid-the-deep-end-book-15-1.jpg" alt="The deep end book" style="width:65%">
+      <img id="2"src="https://kbimages1-a.akamaihd.net/6ea81875-5ef9-4594-801a-a93d650a84b2/1200/1200/False/diary-of-a-wimpy-kid-the-deep-end-book-15-1.jpg" alt="The deep end book" style="width:65%">
       <div class="container">
         <h2>14.99$</h2>
         <p class="title">The Deep End , ID`=2</p>
@@ -966,7 +966,7 @@ function three(){
 
   <div class="column">
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Full begginer Python course" style="width:50%">
+      <img id="3"src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Full begginer Python course" style="width:50%">
       <div class="container">
         <h2><del>200P<del></h2>
           <h2>100P, Id=3</h2>
@@ -1012,7 +1012,7 @@ ul li {
   position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
-  background: grey
+  background: grey;
   font-size: 25px;
 }
 
@@ -1136,6 +1136,7 @@ input {
   <input  type="number"id="myInput" placeholder="ID">
   <span onclick="newElement()" class="addBtn">Add</span>
   <span onclick="check()" class="addBtn1">Buy</span>
+  <span onclick="clearimg()" style="background-color:red;"class="addBtn1">Clear All</span>
 </div>
 
 <ul class="ul"id="myUL">
@@ -1143,6 +1144,9 @@ input {
 </ul>
 
 <script>
+function clearimg(){
+  document.getElementById("myUL").style.display="none";
+}
 function check(){
   document.getElementById("s").value="cart";
 }
@@ -1162,6 +1166,7 @@ for (i = 0; i < myNodelist.length; i++) {
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
 }
+
 
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
@@ -1184,9 +1189,14 @@ list.addEventListener('click', function(ev) {
 // Create a new list item when clicking on the "Add" button
 function newElement() {
   var li = document.createElement("li");
+  var img=document.createElement("img");
   var inputValue = document.getElementById("myInput").value;
+  //alert(document.getElementById(inputValue).src);
+  img.src=document.getElementById(inputValue).src;
+  img.width="100";
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
+  document.getElementById("myUL").appendChild(img);
   if (inputValue === '') {
     alert("You must write something!");
   } else {
@@ -1199,6 +1209,8 @@ function newElement() {
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
+
+
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
