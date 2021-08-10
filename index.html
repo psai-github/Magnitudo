@@ -1136,7 +1136,7 @@ input {
   <input  type="number"id="myInput" placeholder="ID">
   <span onclick="newElement()" class="addBtn">Add</span>
   <span onclick="check()" class="addBtn1">Buy</span>
-  <span onclick="clearimg()" style="background-color:red;"class="addBtn1">Clear All</span>
+
 </div>
 
 <ul class="ul"id="myUL">
@@ -1144,9 +1144,7 @@ input {
 </ul>
 
 <script>
-function clearimg(){
-  document.getElementById("myUL").style.display="none";
-}
+
 function check(){
   document.getElementById("s").value="cart";
 }
@@ -1157,7 +1155,7 @@ function save(){
 }
 
 // Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
+var myNodelist = document.getElementsByTagName("img");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
@@ -1177,12 +1175,21 @@ for (i = 0; i < close.length; i++) {
     div.style.display = "none";
   }
 }
-
+//
+var close1 = document.getElementsByClassName("close1");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
+
   }
 }, false);
 
@@ -1196,7 +1203,7 @@ function newElement() {
   img.width="100";
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
-  document.getElementById("myUL").appendChild(img);
+  li.appendChild(img);
   if (inputValue === '') {
     alert("You must write something!");
   } else {
