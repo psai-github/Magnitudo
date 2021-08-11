@@ -452,10 +452,18 @@ h2{color:grey;}
   <h2><strong>Extra:</strong></h2>
   <a href="games.html">Games</a>
   <a href="tutor.html">Teaching</a>
-  
+  <button onclick="dark()">Dark Mode</button>
+  <br>
+  <button onclick="light()">Light Mode</button>
 </div>
 
 <script>
+function dark(){
+  document.body.style.background = "black";
+}
+function light(){
+  document.body.style.background = "white";
+}
 function openNav1() {
   document.getElementById("mySidebar1").style.width = "250px";
   document.getElementById("main1").style.marginLeft = "250px";
