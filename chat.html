@@ -190,6 +190,9 @@ function updateMembersDOM() {
 }
 
 function createMessageElement(text, member) {
+  while(text==null){
+    text=prompt("Please Enter Valid User-Name!")
+  }
   const el = document.createElement('div');
   el.appendChild(createMemberElement(member));
   el.appendChild(document.createTextNode(text));
