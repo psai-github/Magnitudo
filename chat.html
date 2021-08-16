@@ -244,9 +244,6 @@ const room = drone.subscribe('observable-room', {
 room.on('history_message', ({data}) => {
     document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+"<br>"+data;
 });
-const room = drone.subscribe('observable-room', {
-    historyCount: 10 // ask for the latest message from history
-});
 let members = [];
 
 drone.on('open', error => {
