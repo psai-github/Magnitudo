@@ -200,7 +200,12 @@ function video(){
     
     var pattern2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
     var str2 = str1.replace(pattern2, '$1<a target="_blank" href="http://$2">$2</a>');
-    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+"<br>"+str2;
+    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+str2;
+    drone.publish({
+      room: 'observable-room',
+      message:"Please join my P2P meeting:"+mid,
+    })
+    
 }
 function createMemberElement(member) {
   const { name, color } = member.clientData;
@@ -329,7 +334,11 @@ function video(){
     
     var pattern2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
     var str2 = str1.replace(pattern2, '$1<a target="_blank" href="http://$2">$2</a>');
-    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+"<br>"+str2;
+    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+str2;
+    drone.publish({
+      room: 'observable-room',
+      message:"Please join my P2P meeting:"+mid
+    }) 
 }
 //------------- DOM STUFF
 
@@ -483,9 +492,6 @@ drone.on('error', error => {
   console.error(error);
 });
 
-function getRandomName() {
- console.log("Got random name!");
-}
 
 function getRandomColor() {
   return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
@@ -498,8 +504,12 @@ function video(){
     
     var pattern2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
     var str2 = str1.replace(pattern2, '$1<a target="_blank" href="http://$2">$2</a>');
-    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+"<br>"+str2;
-}
+    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+str2;
+    drone.publish({
+      room: 'observable-room',
+      message:"Please join my P2P meeting:"+mid,
+  });
+} 
 //------------- DOM STUFF
 
 const DOM = {
@@ -512,7 +522,7 @@ const DOM = {
 
 DOM.form.addEventListener('submit', sendMessage);
 
-function sendMessage() {
+function sendMessage(member) {
   const value = DOM.input.value;
   if (value === '') {
     return;
@@ -520,7 +530,7 @@ function sendMessage() {
   DOM.input.value = '';
   drone.publish({
     room: 'observable-room',
-    message: value,
+    message:value,
   });
 }
 
