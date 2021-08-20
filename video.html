@@ -19,7 +19,7 @@
       margin: 0 50px;
       box-sizing: border-box;
       border-radius: 2px;
-      padding: 0;
+      padding: 10;
       box-shadow: rgba(156, 172, 172, 0.2) 0px 2px 2px, rgba(156, 172, 172, 0.2) 0px 4px 4px, rgba(156, 172, 172, 0.2) 0px 8px 8px, rgba(156, 172, 172, 0.2) 0px 16px 16px, rgba(156, 172, 172, 0.2) 0px 32px 32px, rgba(156, 172, 172, 0.2) 0px 64px 64px;
     }
     .copy {
@@ -30,14 +30,32 @@
       font-size: 16px;
       color: rgba(0, 0, 0, 0.5);
     }
+    .message-form__button {
+      border: 1px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: blue;
+      margin-bottom: 15px;
+      border-radius: 25px;
+      background: blue;
+      padding: 20px; 
+    }
     body{background-color: black;}
   </style>
 </head>
 <body>
-  <div style="color:grey;"class="copy"><strong><a href="mailto:?subject="Request To Join 1 on 1 meeting""Send your URL to a friend to start a video call</strong></a></div>
-  <video id="localVideo" autoplay muted></video>
+<div>
+  <video id="localVideo" autoplay ></video>
   <video id="remoteVideo" autoplay></video>
-  <script>
+</div>
+<div>
+  <button onclick="leave()"class="message-form__button"style="background-color: red;color: black;" >Leave</button>
+</div>
+
+<script>
+function leave(){
+  window.close();
+}
       // Generate random room name if needed
 if (!location.hash) {
   location.hash = Math.floor(Math.random() * 0xFFFFFF).toString(16);
@@ -82,13 +100,7 @@ drone.on('open', error => {
   });
 });
 
-// Send signaling data via Scaledrone
-function sendMessage(message) {
-  drone.publish({
-    room: roomName,
-    message
-  });
-}
+
 
 function startWebRTC(isOfferer) {
   pc = new RTCPeerConnection(configuration);
