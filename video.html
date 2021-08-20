@@ -48,14 +48,10 @@
   <video id="localVideo" autoplay ></video>
   <video id="remoteVideo" autoplay></video>
 </div>
-<div>
-  <button onclick="leave()"class="message-form__button"style="background-color: red;color: black;" >Leave</button>
-</div>
+
 
 <script>
-function leave(){
-  window.close();
-}
+
       // Generate random room name if needed
 if (!location.hash) {
   location.hash = Math.floor(Math.random() * 0xFFFFFF).toString(16);
