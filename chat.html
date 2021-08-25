@@ -87,6 +87,7 @@
 </html>
 
 <script>
+const d=new Date();
 var code=prompt("What is the Chat-Id");
 if(code=="delsur-group"){
 let id="DgonuDhysxmKlhmv"
@@ -265,7 +266,7 @@ const drone = new ScaleDrone(CLIENT_ID, {
 });
 
 const room = drone.subscribe('observable-room', {
-    historyCount: 20 // ask for the latest message from history
+    historyCount: 10 // ask for the latest message from history
 });
 room.on('history_message', ({data}) => {
     document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+"<br>"+data;
@@ -507,7 +508,7 @@ function video(){
     document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+str2;
     drone.publish({
       room: 'observable-room',
-      message:"Please join my P2P meeting:"+mid,
+      message:"Please join my P2P meeting:"+mid+"    "+d.getHours()+":"+d.getMinutes(),
   });
 } 
 //------------- DOM STUFF
@@ -530,7 +531,7 @@ function sendMessage(member) {
   DOM.input.value = '';
   drone.publish({
     room: 'observable-room',
-    message:value,
+    message:value+"    "+d.getHours()+":"+d.getMinutes(),
   });
 }
 
@@ -577,7 +578,7 @@ function addMessageToListDOM(text, member) {
 
 
 
-else if(code=="brodows"){
+else if(code=="brodows"||"pranav"){
 let id="qK9updIAmHezCDBX"
 
 
@@ -662,7 +663,7 @@ function video(){
     document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+str2;
     drone.publish({
       room: 'observable-room',
-      message:"Please join my P2P meeting:"+mid,
+      message:"Please join my P2P meeting:"+mid+"    "+d.getHours()+":"+d.getMinutes(),
   });
 } 
 //------------- DOM STUFF
@@ -685,7 +686,7 @@ function sendMessage(member) {
   DOM.input.value = '';
   drone.publish({
     room: 'observable-room',
-    message:value,
+    message:value+"    "+d.getHours()+":"+d.getMinutes(),
   });
 }
 
@@ -814,7 +815,7 @@ function video(){
     document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+str2;
     drone.publish({
       room: 'observable-room',
-      message:"Please join my P2P meeting:"+mid,
+      message:"Please join my P2P meeting:"+mid+"    "+d.getHours()+":"+d.getMinutes(),
   });
 } 
 //------------- DOM STUFF
@@ -837,7 +838,7 @@ function sendMessage(member) {
   DOM.input.value = '';
   drone.publish({
     room: 'observable-room',
-    message:value,
+    message:value+"    "+d.getHours()+":"+d.getMinutes(),
   });
 }
 
