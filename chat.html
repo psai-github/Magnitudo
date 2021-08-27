@@ -408,6 +408,14 @@ function addMessageToListDOM(text, member) {
 
 
 
+
+
+
+
+
+
+
+
 if(code=="delsur5"){
 let id="vQut48iV47RBnw4q"
 
@@ -433,7 +441,7 @@ drone.on('open', error => {
   }
   console.log('Successfully connected to Chat');
   const room = drone.subscribe('observable-room', {
-    historyCount: 20 // ask for the latest message from history
+    historyCount: 50 // ask for the latest message from history
   });
   room.on('open', error => {
     if (error) {
@@ -567,7 +575,6 @@ function addMessageToListDOM(text, member) {
   }
 }
 }
-
 
 
 
@@ -734,10 +741,10 @@ function addMessageToListDOM(text, member) {
 
 
 
-else if(code=="ambuga"){
+if(code=="ambuga"){
 let id="9EPhHMQdp9AzDeF5"
 
-
+//alert(id);
     // PS! Replace this with your own channel ID
 // If you use this channel ID your app will stop working in the future
 
@@ -748,13 +755,9 @@ const drone = new ScaleDrone(CLIENT_ID, {
     color: getRandomColor(),
   },
 });
-
-const room = drone.subscribe('observable-room', {
-    historyCount: 10 // ask for the latest message from history
-});
-room.on('history_message', ({data}) => {
-    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+"<br>"+data;
-});
+while(name==null){
+    name=alert("Sending without user-name!");
+}
 let members = [];
 
 drone.on('open', error => {
@@ -762,8 +765,9 @@ drone.on('open', error => {
     return console.error(error);
   }
   console.log('Successfully connected to Chat');
-
-  const room = drone.subscribe('observable-room');
+  const room = drone.subscribe('observable-room', {
+    historyCount: 10 // ask for the latest message from history
+  });
   room.on('open', error => {
     if (error) {
       return console.error(error);
@@ -781,12 +785,18 @@ drone.on('open', error => {
     updateMembersDOM();
   });
 
-  room.on('member_leave', ({id}) => {
+room.on('member_leave', ({id}) => {
     const index = members.findIndex(member => member.id === id);
     members.splice(index, 1);
     updateMembersDOM();
   });
 
+hist=[];
+
+room.on('history_message', ({data}) => {
+    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+"<br>"+data;
+
+});
   room.on('data', (text, member) => {
     if (member) {
       addMessageToListDOM(text, member);
@@ -804,24 +814,13 @@ drone.on('error', error => {
   console.error(error);
 });
 
+function getRandomName() {
+ console.log("Got random name!");
+}
 
 function getRandomColor() {
   return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
 }
-function video(){
-    var mid="www.magnitudo.ml/video#"+Math.random()*1000000000000000000;
-    var str = mid;
-    var pattern1 = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-    var str1 = str.replace(pattern1, "<a href='$1'>$1</a>");
-    
-    var pattern2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
-    var str2 = str1.replace(pattern2, '$1<a target="_blank" href="http://$2">$2</a>');
-    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+str2;
-    drone.publish({
-      room: 'observable-room',
-      message:"Please join my P2P meeting:"+mid+"    "+d.getHours()+":"+d.getMinutes(),
-  });
-} 
 //------------- DOM STUFF
 
 const DOM = {
@@ -835,6 +834,7 @@ const DOM = {
 DOM.form.addEventListener('submit', sendMessage);
 
 function sendMessage(member) {
+  const value1 = member.name;
   const value = DOM.input.value;
   if (value === '') {
     return;
@@ -842,10 +842,24 @@ function sendMessage(member) {
   DOM.input.value = '';
   drone.publish({
     room: 'observable-room',
-    message:value+"    "+d.getHours()+":"+d.getMinutes(),
+    message:value,
   });
 }
-
+function video(){
+    var mid="www.magnitudo.ml/video#"+Math.random()*1000000000000000000;
+    var str = mid;
+    var pattern1 = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var str1 = str.replace(pattern1, "<a href='$1'>$1</a>");
+    
+    var pattern2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    var str2 = str1.replace(pattern2, '$1<a target="_blank" href="http://$2">$2</a>');
+    document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+str2;
+    drone.publish({
+      room: 'observable-room',
+      message:"Please join my P2P meeting:"+mid,
+    })
+    
+}
 function createMemberElement(member) {
   const { name, color } = member.clientData;
   const el = document.createElement('div');
@@ -874,6 +888,9 @@ function createMessageElement(text, member) {
   return el;
 }
 
+
+
+
 function addMessageToListDOM(text, member) {
   const el = DOM.messages;
   const wasTop = el.scrollTop === el.scrollHeight - el.clientHeight;
@@ -883,6 +900,8 @@ function addMessageToListDOM(text, member) {
   }
 }
 }
+
+
 
 
 else{
