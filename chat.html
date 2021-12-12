@@ -594,7 +594,7 @@ function addMessageToListDOM(text, member) {
 
 
 
-else if(code=="pranav"){
+else if(code=="richat"){
 let id="qK9updIAmHezCDBX"
 
 
@@ -610,7 +610,7 @@ const drone = new ScaleDrone(CLIENT_ID, {
 });
 
 const room = drone.subscribe('observable-room', {
-    historyCount: 10 // ask for the latest message from history
+    historyCount: 100 // ask for the latest message from history
 });
 room.on('history_message', ({data}) => {
     document.getElementById("one").innerHTML=document.getElementById("one").innerHTML+"<br>"+data;
